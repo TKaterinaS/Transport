@@ -1,19 +1,12 @@
 package transport;
 
-public class Car {
-    //«Марка»
-    private final String brand;
-    //«Модель»
-    private final String model;
+/** Класс Car наследующий класс Transport
+ *
+ */
+
+public class Car extends Transport{
     //«Объем двигателя» в литрах
     private double engineCapacity;
-    //«Цвет кузова»
-    private String color;
-    //«Год производства»
-    private final int yearOfProduction;
-    //«Страна сборки»
-    private final String country;
-
     //«Коробка передач»
     private String transmission;
     //«Тип кузова»
@@ -25,76 +18,43 @@ public class Car {
     //признак «Летняя» или «Зимняя резина»
     private boolean summerWinter;
 
+    //Удаленный запуск двигателя
+    private Key key;
+
+    //Конструктор содержащий параметы родительского и данного класса
     public Car(String brand,
                String model,
-               double engineCapacity,
-               String color,
                int yearOfProduction,
                String country,
+               String color,
+               int maxSpeed,
+               double engineCapacity,
                String transmission,
                String bodyType,
                String registrationNumber,
                int numberOfSeats,
-               boolean summerWinter) {
-        if (brand == null|| brand.isEmpty()){
-            brand = "default";
-        }
-        this.brand = brand;
-
-        if (model == null|| model.isEmpty()){
-            model = "default";
-        }
-        this.model = model;
-
-        this.engineCapacity = engineCapacity;
-        this.color = color;
-
-        if (yearOfProduction <= 0){
-            yearOfProduction = 2000;
-        }
-        this.yearOfProduction = yearOfProduction;
-
-        if (country == null || country.isEmpty()){
-            country = "Турция";
-        }
-        this.country = country;
-
-        this.transmission = transmission;
-
-        if (bodyType == null || bodyType.isEmpty()){
-            bodyType = "Седан";
-        }
+               boolean summerWinter,
+               Key key) {
+        super(brand, model, yearOfProduction, country, color, maxSpeed);
+        setEngineCapacity(engineCapacity);
+        setTransmission(transmission);
+        setRegistrationNumber(registrationNumber);
+        setSummerWinter(summerWinter);
+        setKey(key);
         this.bodyType = bodyType;
-
-        this.registrationNumber = registrationNumber;
-
         this.numberOfSeats = numberOfSeats;
-        if (numberOfSeats <= 0){
-            numberOfSeats = 5;
-        }
-        this.summerWinter = summerWinter;
     }
 
+    // Геттеры и сеттеры
     public double getEngineCapacity() {
         return engineCapacity;
     }
 
     public void setEngineCapacity(double engineCapacity) {
-        if (Double.compare(engineCapacity, 0D) == 0){
-            engineCapacity = 1.5;
+        if (engineCapacity <= 0){
+            engineCapacity = 1.0;
         }
-            this.engineCapacity = engineCapacity;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        if (this.color == null || this.color.isEmpty() || this.color.isBlank()){
-            color = "Белый";
-        }
-            this.color = color;
+        this.engineCapacity = engineCapacity;
     }
 
     public String getTransmission() {
@@ -102,12 +62,14 @@ public class Car {
     }
 
     public void setTransmission(String transmission) {
-        if (this.transmission == null
-                || this.transmission.isEmpty()
-                || this.transmission.isBlank()){
+        if (transmission == null || transmission.isEmpty()){
             transmission = "МКПП";
         }
-            this.transmission = transmission;
+        this.transmission = transmission;
+    }
+
+    public String getBodyType() {
+        return bodyType;
     }
 
     public String getRegistrationNumber() {
@@ -115,14 +77,14 @@ public class Car {
     }
 
     public void setRegistrationNumber(String registrationNumber) {
-        if (this.registrationNumber == null
-                || this.registrationNumber.isEmpty()
-                || this.registrationNumber.isBlank()){
-            registrationNumber = "Значение не может быть пустым";
-        }else {
-            this.registrationNumber = registrationNumber;
+        if (registrationNumber == null || registrationNumber.isEmpty()){
+            registrationNumber = "XX000X000";
         }
+        this.registrationNumber = registrationNumber;
+    }
 
+    public int getNumberOfSeats() {
+        return numberOfSeats;
     }
 
     public boolean isSummerWinter() {
@@ -130,57 +92,21 @@ public class Car {
     }
 
     public void setSummerWinter(boolean summerWinter) {
-            this.summerWinter = summerWinter;
+        this.summerWinter = summerWinter;
     }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public int getYearOfProduction() {
-        return yearOfProduction;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public String getBodyType() {
-        return bodyType;
-    }
-
-    public int getNumberOfSeats() {
-        return numberOfSeats;
-    }
-
-    // Метод замены резины на сезонную
     public void changeTyres(){
         setSummerWinter(!summerWinter);
     }
 
-    @Override
-    public String toString() {
-        return "Car{" +
-                "brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", engineCapacity=" + engineCapacity +
-                ", color='" + color + '\'' +
-                ", yearOfProduction=" + yearOfProduction +
-                ", country='" + country + '\'' +
-                ", transmission='" + transmission + '\'' +
-                ", bodyType='" + bodyType + '\'' +
-                ", registrationNumber='" + registrationNumber + '\'' +
-                ", numberOfSeats=" + numberOfSeats +
-                ", summerWinter=" + summerWinter +
-                '}';
+    public Key getKey() {
+        return key;
     }
 
+    public void setKey(Key key) {
+        this.key = key;
+    }
 
-    /**Вложенный класс "Ключ"
+    /**Вложенный класс Key
      *
      */
     public static class Key{
@@ -195,6 +121,7 @@ public class Car {
             this.keylessAccess = keylessAccess;
         }
 
+
         public boolean isRemoteEngineStart() {
             return remoteEngineStart;
         }
@@ -202,5 +129,26 @@ public class Car {
         public boolean isKeylessAccess() {
             return keylessAccess;
         }
+
+        @Override
+        public String toString() {
+            return "Key{" +
+                    "remoteEngineStart=" + remoteEngineStart +
+                    ", keylessAccess=" + keylessAccess +
+                    '}';
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "engineCapacity=" + engineCapacity +
+                ", transmission='" + transmission + '\'' +
+                ", bodyType='" + bodyType + '\'' +
+                ", registrationNumber='" + registrationNumber + '\'' +
+                ", numberOfSeats=" + numberOfSeats +
+                ", summerWinter=" + summerWinter +
+                ", key=" + key +
+                "} " + super.toString();
     }
 }
