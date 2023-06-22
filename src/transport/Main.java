@@ -1,82 +1,108 @@
 package transport;
 
-import transport.Car;
+import transport.driver.Driver;
+import transport.driver.LicenseB;
+import transport.driver.LicenseC;
+import transport.driver.LicenseD;
 
 public class Main {
     public static void main(String[] args) {
-        Car lada = new Car("Lada",
-                "Priora",
-                2015,
-                "Россия",
-                "Белый",
-                210,
-                1.6,
-                "МКПП",
-                "Седан",
-                "УА956О",
-                5,
-                true,
-                new Car.Key(false,
-                        false)
-                );
+        Car lada = new Car("Lada", "Kalina", 1.6, BodyType.SEDAN);
         System.out.println(lada);
-
-
-        Car toyota = new Car("Toyota",
-                "Camry",
-                2010,
-                "Япония",
-                "Красный",
-                250,
-                3.0,
-                "АКПП",
-                "Седан",
-                "КУ723Е",
-                5,
-                true,
-                new Car.Key(true,
-                        true));
+        lada.start();
+        lada.pitStop();
+        lada.bestLapTime();
+        lada.maxSpeed();
+        lada.stop();
+        Car toyota = new Car("Toyota", "Camry", 3.0, BodyType.COMPARTMENT);
         System.out.println(toyota);
-
-        Car nissan = new Car("Nissan",
-                "March",
-                2008,
-                "Япония",
-                "Синий",
-                180,
-                1.3,
-                "АКПП",
-                "Седан",
-                "ВН098А",
-                5,
-                true,
-                new Car.Key(true,
-                        false));
+        toyota.start();
+        toyota.pitStop();
+        toyota.bestLapTime();
+        toyota.maxSpeed();
+        toyota.stop();
+        Car nissan = new Car("Nissan", "March", 1.3,BodyType.HATCHBACK);
         System.out.println(nissan);
+        nissan.start();
+        nissan.pitStop();
+        nissan.bestLapTime();
+        nissan.maxSpeed();
+        nissan.stop();
+        Car mitsubishi = new Car("Mitsubishi","Lancer", 3.0, BodyType.STATION_WAGON);
+        System.out.println(mitsubishi);
+        mitsubishi.start();
+        mitsubishi.pitStop();
+        mitsubishi.bestLapTime();
+        mitsubishi.maxSpeed();
+        mitsubishi.stop();
 
-        Bus liaz = new Bus("Лиаз",
-                "B-905",
-                2000,
-                "Россия",
-                "Желтый",
-                170
-                );
+        System.out.println("************************");
+        Bus liaz = new Bus("Liaz","D-0987", 4.0, TypeOfCapacity.getValue(70));
         System.out.println(liaz);
-        Bus ford = new Bus("Ford",
-                "OOO",
-                2010,
-                "Корея",
-                "Белый",
-                200
-                );
+        liaz.start();
+        liaz.pitStop();
+        liaz.bestLapTime();
+        liaz.maxSpeed();
+        liaz.stop();
+        Bus ford = new Bus("Ford", "N55", 5.0,TypeOfCapacity.getValue(20));
         System.out.println(ford);
-        Bus paz = new Bus("ПАЗ",
-                "D-600",
-                1990,
-                "Россия",
-                "Красный",
-                170
-                );
+        ford.start();
+        ford.pitStop();
+        ford.bestLapTime();
+        ford.maxSpeed();
+        ford.stop();
+        Bus paz = new Bus("PAZ", "B-12", 4.75, TypeOfCapacity.getValue(50));
         System.out.println(paz);
+        paz.start();
+        paz.pitStop();
+        paz.bestLapTime();
+        paz.maxSpeed();
+        paz.stop();
+        Bus peugeot = new Bus("Peugeot", "XXX", 5.0, TypeOfCapacity.getValue(120));
+        System.out.println(peugeot);
+        peugeot.start();
+        peugeot.pitStop();
+        peugeot.bestLapTime();
+        peugeot.maxSpeed();
+        peugeot.stop();
+
+        System.out.println("------------------");
+        Truck kamaz = new Truck("Kamaz", "5", 12.0, LiftingCapacity.getValue(30));
+        System.out.println(kamaz);
+        kamaz.start();
+        kamaz.pitStop();
+        kamaz.bestLapTime();
+        kamaz.maxSpeed();
+        kamaz.stop();
+        Truck jac = new Truck("JAC", "LJ", 10.0, LiftingCapacity.getValue(10.0));
+        System.out.println(jac);
+        jac.start();
+        jac.pitStop();
+        jac.bestLapTime();
+        jac.maxSpeed();
+        jac.stop();
+        Truck gazel = new Truck("Gazele", "7", 10.0, LiftingCapacity.getValue(5.0));
+        System.out.println(gazel);
+        gazel.start();
+        gazel.pitStop();
+        gazel.bestLapTime();
+        gazel.maxSpeed();
+        gazel.stop();
+        Truck arco = new Truck("Arco", "M-4", 8.0, LiftingCapacity.getValue(3.0));
+        System.out.println(arco);
+        arco.start();
+        arco.pitStop();
+        arco.bestLapTime();
+        arco.maxSpeed();
+        arco.stop();
+
+        System.out.println("************************");
+        Driver <Car> ivan = new LicenseB("Иван", true, 5);
+        Driver <Truck> fedor = new LicenseC("Федор", true, 10);
+        Driver <Bus> dmitrij = new LicenseD("Дмитрий", true, 12);
+
+        ivan.printInfo(lada);
+        fedor.printInfo(kamaz);
+        dmitrij.printInfo(liaz);
     }
 }

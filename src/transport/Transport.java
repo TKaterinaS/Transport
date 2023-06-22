@@ -8,40 +8,13 @@ public abstract class Transport {
     private final String brand;
     //«Модель»
     private final String model;
-    //«Год выпуска»
-    private final int yearOfProduction;
-    //«Страна производства»
-    private final String country;
-    //«Цвет кузова»
-    private String color;
-    //«Максимальная скорость передвижения»
-    private int maxSpeed;
+    //«Объем двигателя» в литрах
+    private final double engineCapacity;
 
-    public Transport(String brand,
-                     String model,
-                     int yearOfProduction,
-                     String country,
-                     String color,
-                     int maxSpeed) {
-        if (brand == null || brand.isEmpty()){
-            brand = "default";
-        }
+    public Transport(String brand, String model, double engineCapacity) {
         this.brand = brand;
-        if (model == null || model.isEmpty()){
-            model = "default";
-        }
         this.model = model;
-        if (yearOfProduction <= 0){
-            yearOfProduction = 2000;
-        }
-        this.yearOfProduction = yearOfProduction;
-        if (country == null || country.isEmpty()){
-            country = "default";
-        }
-        this.country = country;
-
-        setColor(color);
-        setMaxSpeed(maxSpeed);
+        this.engineCapacity = engineCapacity;
     }
 
     public String getBrand() {
@@ -52,45 +25,22 @@ public abstract class Transport {
         return model;
     }
 
-    public int getYearOfProduction() {
-        return yearOfProduction;
+    public double getEngineCapacity() {
+        return engineCapacity;
     }
 
-    public String getCountry() {
-        return country;
-    }
+    //абстрактный метод «начать движение»
+    public abstract void start();
 
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        if (color == null || color.isEmpty() || color.isBlank()){
-            color = "Белый";
-        }
-        this.color = color;
-    }
-
-    public int getMaxSpeed() {
-        return maxSpeed;
-    }
-
-    public void setMaxSpeed(int maxSpeed) {
-        if (maxSpeed <= 0){
-            maxSpeed = 200;
-        }
-        this.maxSpeed = maxSpeed;
-    }
+    //абстрактный метод «закончить движение»
+    public abstract void stop();
 
     @Override
     public String toString() {
         return "Transport{" +
                 "brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
-                ", yearOfProduction=" + yearOfProduction +
-                ", country='" + country + '\'' +
-                ", color='" + color + '\'' +
-                ", maxSpeed=" + maxSpeed +
+                ", engineCapacity=" + engineCapacity +
                 '}';
     }
 }
