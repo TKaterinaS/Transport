@@ -1,10 +1,21 @@
 package transport;
 
 /**Класс Bus наследник класса Transport
- *
+ * имплементирующий интерфейс Competing (Соревнующиеся)
  */
 public class Bus extends Transport implements Competing{
     private final TypeOfCapacity typeOfCapacity;
+    private Type type;
+    public Bus(String brand,
+               String model,
+               double engineCapacity,
+               TypeOfCapacity typeOfCapacity,
+               Type type) {
+        super(brand, model, engineCapacity);
+        this.typeOfCapacity = typeOfCapacity;
+        this.type = type;
+    }
+
     public Bus(String brand,
                String model,
                double engineCapacity,
@@ -17,6 +28,10 @@ public class Bus extends Transport implements Competing{
         return typeOfCapacity;
     }
 
+    public Type getType(){
+        return type;
+    }
+
     @Override
     public void start() {
         System.out.println("Автобус \"" + getBrand() + "\" (\"" + getModel() + "\") начал движение");
@@ -25,6 +40,15 @@ public class Bus extends Transport implements Competing{
     @Override
     public void stop() {
         System.out.println("Автобус \"" + getBrand() + "\" (\"" + getModel() + "\") закончил движение");
+    }
+
+    @Override
+    public void printType() {
+        if (type == null){
+            System.out.println("Данных по транспортному средству недостаточно.");
+        }else {
+            System.out.println(" Тип транспортного средства: " + type.getTypeName());
+        }
     }
 
     @Override

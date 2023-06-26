@@ -1,10 +1,21 @@
 package transport;
 
 /** Класс Truck наследующий класс Transport
- *
+ * имплементирующий интерфейс Competing (Соревнующиеся)
  */
 public class Truck extends Transport implements Competing{
     private final LiftingCapacity liftingCapacity;
+    private Type type;
+    public Truck(String brand,
+                 String model,
+                 double engineCapacity,
+                 LiftingCapacity liftingCapacity,
+                 Type type) {
+        super(brand, model, engineCapacity);
+        this.liftingCapacity = liftingCapacity;
+        this.type = type;
+    }
+
     public Truck(String brand,
                  String model,
                  double engineCapacity,
@@ -16,6 +27,9 @@ public class Truck extends Transport implements Competing{
     public LiftingCapacity getLiftingCapacity() {
         return liftingCapacity;
     }
+    public Type getType(){
+        return type;
+    }
 
     @Override
     public void start() {
@@ -25,6 +39,15 @@ public class Truck extends Transport implements Competing{
     @Override
     public void stop() {
         System.out.println("Грузовик \"" + getBrand() + "\" (\"" + getModel() + "\") закончил движение");
+    }
+
+    @Override
+    public void printType() {
+        if (type == null){
+            System.out.println("Данных по транспортному средству недостаточно.");
+        }else {
+            System.out.println(" Тип транспортного средства: " + type.getTypeName());
+        }
     }
 
     @Override

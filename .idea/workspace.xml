@@ -4,21 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89e5e2a6-51a6-444b-ace7-6ec2e460fcc8" name="Changes" comment="выполнено ДЗ 2">
-      <change afterPath="$PROJECT_DIR$/src/transport/BodyType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transport/Competing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transport/LiftingCapacity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transport/Truck.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transport/TypeOfCapacity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transport/driver/Driver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transport/driver/LicenseB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transport/driver/LicenseC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/transport/driver/LicenseD.java" afterDir="false" />
+    <list default="true" id="89e5e2a6-51a6-444b-ace7-6ec2e460fcc8" name="Changes" comment="выполнено ДЗ 3 и 4">
+      <change afterPath="$PROJECT_DIR$/src/transport/Type.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/transport/BodyType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/transport/BodyType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/transport/Bus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/transport/Bus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/transport/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/transport/Car.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/transport/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/transport/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/transport/Transport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/transport/Transport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/transport/Truck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/transport/Truck.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +67,9 @@
       <workItem from="1687003146647" duration="12426000" />
       <workItem from="1687170924285" duration="11008000" />
       <workItem from="1687343906240" duration="1550000" />
-      <workItem from="1687426967417" duration="21578000" />
+      <workItem from="1687426967417" duration="21648000" />
+      <workItem from="1687611874486" duration="6611000" />
+      <workItem from="1687782976490" duration="2565000" />
     </task>
     <task id="LOCAL-00001" summary="первый коммит">
       <created>1687003548327</created>
@@ -96,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687198897150</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="выполнено ДЗ 3 и 4">
+      <created>1687471187563</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1687471187564</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,6 +120,7 @@
     <MESSAGE value="первый коммит" />
     <MESSAGE value="выполнено ДЗ 1" />
     <MESSAGE value="выполнено ДЗ 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="выполнено ДЗ 2" />
+    <MESSAGE value="выполнено ДЗ 3 и 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="выполнено ДЗ 3 и 4" />
   </component>
 </project>

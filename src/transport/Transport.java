@@ -35,6 +35,8 @@ public abstract class Transport {
     //абстрактный метод «закончить движение»
     public abstract void stop();
 
+    //абстрактный метод получения информации по типу автомобиля
+    public abstract void printType();
     @Override
     public String toString() {
         return "Transport{" +

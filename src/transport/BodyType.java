@@ -1,6 +1,6 @@
 package transport;
 
- enum BodyType{
+enum BodyType{
         SEDAN ("Седан"),
         HATCHBACK ("Хетчбэк"),
         COMPARTMENT ("Купе"),
@@ -11,12 +11,17 @@ package transport;
         VAN ("Фургон"),
         MINIVAN ("Минивэн");
 
-     BodyType(String bodyType) {
-     }
+        private final String bodyType;
 
-     @Override
-     public String toString() {
-         return "Тип кузова: " + super.toString();
-     }
-     //Тип кузова: «Название типа кузова на русском языке».
- }
+    BodyType(String bodyType) {
+        this.bodyType = bodyType;
+    }
+    public String getBodyType(){
+        return bodyType;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+}

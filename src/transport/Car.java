@@ -1,11 +1,22 @@
 package transport;
 
 /** Класс Car наследующий класс Transport
- *
+ * имплементирующий интерфейс Competing (Соревнующиеся)
  */
 
 public class Car extends Transport implements Competing{
     private final BodyType bodyType;
+    private Type type;
+    public Car(String brand,
+               String model,
+               double engineCapacity,
+               BodyType bodyType,
+               Type type) {
+        super(brand, model, engineCapacity);
+        this.bodyType = bodyType;
+        this.type = type;
+    }
+
     public Car(String brand,
                String model,
                double engineCapacity,
@@ -16,6 +27,9 @@ public class Car extends Transport implements Competing{
 
     public BodyType getBodyType() {
         return bodyType;
+    }
+    public Type getType(){
+        return type;
     }
 
     @Override
@@ -29,6 +43,15 @@ public class Car extends Transport implements Competing{
     }
 
     @Override
+    public void printType() {
+        if (type == null){
+            System.out.println("Данных по транспортному средству недостаточно.");
+        }else {
+            System.out.println(" Тип транспортного средства: " + type.getTypeName());
+        }
+    }
+
+    @Override
     public void pitStop() {
         System.out.println("Автомобиль прошёл пит-стоп");
     }
@@ -39,7 +62,6 @@ public class Car extends Transport implements Competing{
                 + getBrand() + " " + getModel() + ": " + (int) (Math.random() * 5));
     }
 
-
     @Override
     public void maxSpeed() {
         System.out.println("Максимальная скорость автомобиля "
@@ -48,7 +70,6 @@ public class Car extends Transport implements Competing{
 
     @Override
     public String toString() {
-
-        return super.toString();
+        return super.toString() + " Тип кузова: " + bodyType.getBodyType();
     }
 }
